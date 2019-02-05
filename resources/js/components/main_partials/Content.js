@@ -1,5 +1,7 @@
 import React,  { Component } from 'react'
 import Spinner from './Spinner'
+import PdfLink from './PdfLink'
+import PdfSpinner from './PdfSpinner'
 import axios from 'axios'
 
 class Content extends Component {
@@ -11,14 +13,16 @@ class Content extends Component {
             results: null,
             errors: [],
             list: [],
-            loading: false
+            loading: false,
+            pdfExported:false,
+            pdfLink:null,
+            pdfLoading:false
         };
         this.handleSearchTerm   = this.handleSearchTerm.bind(this);
         this.search             = this.search.bind(this);
         this.addToList          = this.addToList.bind(this);
         this.exportToPdf        = this.exportToPdf.bind(this);
         this.sendAsEmail        = this.sendAsEmail.bind(this);
-
     }
 
     search (event) {
@@ -31,10 +35,8 @@ class Content extends Component {
             var data = JSON.parse(response.data);
             this.setState({results: data});
             this.setState({ loading: false });
-
         }).catch(error => {
             self.setState({ loading: false });
-
         })
     }
 
@@ -47,15 +49,33 @@ class Content extends Component {
         let i = this.state.list.length;
         i++
 
-        history.push({id:i, name:this.state.results.name, image:this.state.results.image.thumb_url});
+        history.push(
+            {
+                id:i,
+                name:this.state.results.name,
+                image:this.state.results.image.thumb_url
+            }
+        );
         this.setState({list:history});
     }
 
     exportToPdf(event) {
-        axios.post('api/pdf', this.state.list).then(response => {
-            var data = JSON.parse(response.data)
+        this.setState({pdfLoading:true});
+        let params = {
+            theList: this.state.list
+        }
+        axios.post('api/pdf', params).then(response => {
+            console.log(response.data);
+            var url = response.data.url;
+            this.setState({pdfLoading:false})
+            this.setState({pdfLink:url});
+            this.setState({pdfExported:true});
+
+            console.log(response.data);
+
+
         }).catch(error => {
-            alert('search was shite')
+            this.setState({pdfLoading:false})
         })
     }
 
@@ -74,7 +94,6 @@ class Content extends Component {
                             <h3 className='col-12'>The Results</h3>
                         </div>
                     </div>
-                    <hr/>
                     <div className='row '>
                         <p className='col-12'><strong>Name:</strong></p>
                         <p className='col-12'> {this.state.results.name}</p>
@@ -85,7 +104,12 @@ class Content extends Component {
                         <img className='col-4 offset-4 img-thumbnail' src={this.state.results.image.thumb_url}/>
                     </div>
                     <div className='row mt-5'>
-                        <input type='button' className='btn btn-primary col-6 offset-3' onClick={this.addToList} value='Add to list'/>
+                        <input
+                            type='button'
+                            className='btn btn-primary col-6 offset-3'
+                            onClick={this.addToList}
+                            value='Add to list'
+                        />
                     </div>
                 </div>
             </div>
@@ -93,37 +117,45 @@ class Content extends Component {
             resultDiv =
             <div className='row text-center'>
                 <h3 className='col-12'>The Results</h3>
-                <p className='col-12'>You haven't searched for anything yet...</p>
+                <p className='col-12'>No results. Boo!</p>
             </div>
         }
         let listDiv;
         if (this.state.list.length > 0) {
         listDiv =
-            <div className='col-12'>
+            <div className='col-12 text-center'>
                 <div className='card'>
                     <div className='card-header'>
                         <h3 className='col-12'>The List</h3>
                     </div>
-
-                    {this.state.list.map((result) =>
-                        <div key={result.id} className='row'>
-                            <div className='col-12 text-center'>
-                                <strong>{result.name}</strong>
+                        {this.state.list.map((result) =>
+                            <div key={result.id} className='row'>
+                                <div className='col-12 text-center'>
+                                    <strong>{result.name}</strong>
+                                </div>
+                                <div className='col-12'>
+                                    <img className='img-thumbnail' src={result.image}/>
+                                </div>
+                                <div className='row'><hr/></div>
                             </div>
-                            <div className='col-12'>
-                                <img className='img-thumbnail' src={result.image}/>
-                            </div>
-                            <div className='row'><hr/></div>
+                        )}
+                        <hr/>
+                        <div className='row'>
+                            <button
+                                className='btn btn-primary col-6 offset-3'
+                                onClick={this.exportToPdf}
+                            >
+                                Export To PDF
+                            </button>
                         </div>
-
-                    )}
-                    <hr/>
-                    <div className='row'>
-                        <button className='btn btn-primary col-6 offset-3' onClick={this.exportToPdf}>Export To PDF</button>
-                    </div>
-                    <div className='row mt-2 mb-5'>
-                        <button className='btn btn-primary col-6 offset-3' onClick={this.showEmailModal}>Send As Email</button>
-                    </div>
+                        <div className='row mt-2 mb-5'>
+                            <button
+                                className='btn btn-primary col-6 offset-3'
+                                onClick={this.showEmailModal}
+                            >
+                                Send As Email
+                            </button>
+                        </div>
                 </div>
             </div>
         } else {
@@ -131,7 +163,7 @@ class Content extends Component {
                 <div className='col-12'>
                     <div className='row'>
                         <h3 className='col-12'>The List</h3>
-                        <p>You haven't added anything to your list yet</p>
+                        <p>Your list is currently empty</p>
                     </div>
                 </div>
         }
@@ -141,7 +173,9 @@ class Content extends Component {
                     <h5>The Search:</h5>
                     <form onSubmit={this.search}>
                         <div className='form-group'>
-                            <label className='form-label'>Type the name of the game you would like to search for</label>
+                            <label className='form-label' htmlFor='search-term'>
+                                Type the name of the game you would like to search for
+                            </label>
                             <input
                                 type='text'
                                 value={this.state.name}
@@ -160,7 +194,7 @@ class Content extends Component {
                     {this.state.loading ? <Spinner /> : resultDiv}
                 </div>
                 <div className='col-4'>
-                    {listDiv}
+                    {this.state.pdfLoading ? <PdfSpinner /> : this.state.pdfExported ? <PdfLink pdfLink={this.state.pdfLink}/> : listDiv}
                 </div>
             </div>
         )

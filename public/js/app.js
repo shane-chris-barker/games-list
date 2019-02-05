@@ -64258,6 +64258,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.js");
 /* harmony import */ var _Main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Main */ "./resources/js/components/Main.js");
+/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/Footer.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64282,6 +64283,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var App =
 /*#__PURE__*/
 function (_Component) {
@@ -64299,7 +64301,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/",
         component: _Main__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
     }
   }]);
 
@@ -64307,6 +64309,30 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('app'));
+
+/***/ }),
+
+/***/ "./resources/js/components/Footer.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Footer.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Footer = function Footer() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mt-5",
+    id: "footer"
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Footer);
 
 /***/ }),
 
@@ -64322,6 +64348,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _images_games_list_logo_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/games-list-logo.png */ "./resources/js/components/images/games-list-logo.png");
+/* harmony import */ var _images_games_list_logo_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_games_list_logo_png__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -64333,7 +64362,10 @@ var Header = function Header() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "navbar-brand",
     to: "/"
-  }, "Games-List")));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "logo",
+    src: _images_games_list_logo_png__WEBPACK_IMPORTED_MODULE_2___default.a
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
@@ -64388,7 +64420,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container text-center"
+        className: "container text-center mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -64396,10 +64428,12 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to Games- list")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Another boring Sunday afternoon means another pointless creation by me - Shane Chris Barker")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "So....what does this do exactly?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Erm.. it lets you search the GiantBomb API (more info on this in the footer) for a video game and save any of the resutlts to a list. When you've finished building your list, you can export it as a PDF for referring to later or email the list to your Mum so she knows what to get you for Xmas.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Okay, that could be useful to someone I guess... So what did you make it with?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "I'm glad you asked! This creation is my first go at mixing Laravel and React.js! I've used Laravel a lot in my current role but not React.js. This is my first attempt at using the two together.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_partials_Content__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "So....what does this do exactly?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Erm.. it lets you search the GiantBomb API (more info on this in the footer) for a video game and save any of the resutlts to a list. When you have finished building your list, you can export it as a PDF for referring to later or email the list to your Mum so she knows what to get you for Xmas.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Okay, that could be useful to someone I guess... So what did you make it with?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Glad you asked! This creation is my first go at mixing Laravel and React.js! I have used Laravel a lot in my current role but not React.js. This is my first attempt at using the two together."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_partials_Content__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
     }
   }]);
 
@@ -64407,6 +64441,17 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Main);
+
+/***/ }),
+
+/***/ "./resources/js/components/images/games-list-logo.png":
+/*!************************************************************!*\
+  !*** ./resources/js/components/images/games-list-logo.png ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/games-list-logo.png?e269a889455908136c75fd62ac093cb9";
 
 /***/ }),
 
@@ -64422,8 +64467,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Spinner */ "./resources/js/components/main_partials/Spinner.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _PdfLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PdfLink */ "./resources/js/components/main_partials/PdfLink.js");
+/* harmony import */ var _PdfSpinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PdfSpinner */ "./resources/js/components/main_partials/PdfSpinner.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64446,6 +64493,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
+
 var Content =
 /*#__PURE__*/
 function (_Component) {
@@ -64463,7 +64512,10 @@ function (_Component) {
       results: null,
       errors: [],
       list: [],
-      loading: false
+      loading: false,
+      pdfExported: false,
+      pdfLink: null,
+      pdfLoading: false
     };
     _this.handleSearchTerm = _this.handleSearchTerm.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.search = _this.search.bind(_assertThisInitialized(_assertThisInitialized(_this)));
@@ -64485,7 +64537,7 @@ function (_Component) {
       this.setState({
         loading: true
       });
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('api/search', searchTerm).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('api/search', searchTerm).then(function (response) {
         var data = JSON.parse(response.data);
 
         _this2.setState({
@@ -64526,10 +64578,35 @@ function (_Component) {
   }, {
     key: "exportToPdf",
     value: function exportToPdf(event) {
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('api/pdf', this.state.list).then(function (response) {
-        var data = JSON.parse(response.data);
+      var _this3 = this;
+
+      this.setState({
+        pdfLoading: true
+      });
+      var params = {
+        theList: this.state.list
+      };
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('api/pdf', params).then(function (response) {
+        console.log(response.data);
+        var url = response.data.url;
+
+        _this3.setState({
+          pdfLoading: false
+        });
+
+        _this3.setState({
+          pdfLink: url
+        });
+
+        _this3.setState({
+          pdfExported: true
+        });
+
+        console.log(response.data);
       }).catch(function (error) {
-        alert('search was shite');
+        _this3.setState({
+          pdfLoading: false
+        });
       });
     }
   }, {
@@ -64551,7 +64628,7 @@ function (_Component) {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
           className: "col-12"
-        }, "The Results"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "The Results"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row "
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "col-12"
@@ -64581,14 +64658,14 @@ function (_Component) {
           className: "col-12"
         }, "The Results"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "col-12"
-        }, "You haven't searched for anything yet..."));
+        }, "No results. Boo!"));
       }
 
       var listDiv;
 
       if (this.state.list.length > 0) {
         listDiv = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-12"
+          className: "col-12 text-center"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -64627,7 +64704,7 @@ function (_Component) {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
           className: "col-12"
-        }, "The List"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You haven't added anything to your list yet")));
+        }, "The List"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your list is currently empty")));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -64639,7 +64716,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "form-label"
+        className: "form-label",
+        htmlFor: "search-term"
       }, "Type the name of the game you would like to search for"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.name,
@@ -64657,7 +64735,9 @@ function (_Component) {
         className: "col-4"
       }, this.state.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Spinner__WEBPACK_IMPORTED_MODULE_1__["default"], null) : resultDiv), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-4"
-      }, listDiv));
+      }, this.state.pdfLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PdfSpinner__WEBPACK_IMPORTED_MODULE_3__["default"], null) : this.state.pdfExported ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PdfLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        pdfLink: this.state.pdfLink
+      }) : listDiv));
     }
   }]);
 
@@ -64665,6 +64745,139 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Content);
+
+/***/ }),
+
+/***/ "./resources/js/components/main_partials/PdfLink.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/main_partials/PdfLink.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var PdfLink =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(PdfLink, _Component);
+
+  function PdfLink(props) {
+    var _this;
+
+    _classCallCheck(this, PdfLink);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PdfLink).call(this, props));
+    _this.state = {
+      pdfLink: _this.props.pdfLink
+    };
+    console.log('inside pdfLink');
+    console.log(_this.state.pdfLink);
+    return _this;
+  }
+
+  _createClass(PdfLink, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: this.state.pdfLink,
+        className: "btn btn-primary",
+        target: "_blank"
+      }, "Download PDF"));
+    }
+  }]);
+
+  return PdfLink;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (PdfLink);
+
+/***/ }),
+
+/***/ "./resources/js/components/main_partials/PdfSpinner.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/main_partials/PdfSpinner.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _images_pdf_spinner_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/pdf-spinner.svg */ "./resources/js/components/main_partials/images/pdf-spinner.svg");
+/* harmony import */ var _images_pdf_spinner_svg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_images_pdf_spinner_svg__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var PdfSpinner =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(PdfSpinner, _Component);
+
+  function PdfSpinner() {
+    _classCallCheck(this, PdfSpinner);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PdfSpinner).apply(this, arguments));
+  }
+
+  _createClass(PdfSpinner, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: _images_pdf_spinner_svg__WEBPACK_IMPORTED_MODULE_1___default.a
+      }));
+    }
+  }]);
+
+  return PdfSpinner;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (PdfSpinner);
 
 /***/ }),
 
@@ -64741,6 +64954,17 @@ function (_Component) {
 /***/ (function(module, exports) {
 
 module.exports = "/images/pacman-loader.svg?14db6197582b2f89584b9a3d4ba723a7";
+
+/***/ }),
+
+/***/ "./resources/js/components/main_partials/images/pdf-spinner.svg":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/main_partials/images/pdf-spinner.svg ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/pdf-spinner.svg?c98982a2b3632a81d6a74bb4c425f390";
 
 /***/ }),
 

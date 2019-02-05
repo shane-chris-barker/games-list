@@ -15,3 +15,5 @@ use Illuminate\Http\Request;
 
 
 Route::post('/search', 'SearchController@index');
+Route::post('/pdf', 'ExportController@pdf');
+Route::post('/email', 'ExportController@email');

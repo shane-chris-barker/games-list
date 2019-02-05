@@ -10,5 +10,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/pdf/{pdfName}', 'ExportController@downloadPdf');
 Route::view('/{path?}', 'app');
