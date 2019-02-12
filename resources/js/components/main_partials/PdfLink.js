@@ -6,13 +6,12 @@ class PdfLink extends Component {
 		this.state = {
 			pdfLink: this.props.pdfLink
 		};
-        console.log('inside pdfLink');
-        console.log(this.state.pdfLink);
-	}
+    }
 
     render() {
         return (
-            <div className='row'>
+            <div className='alert alert-success'>
+                <h3 className='alert-heading col-12 text-center'>The PDF is ready to download! Whoop!</h3>
                 <a href={this.state.pdfLink} className='btn btn-primary' target='_blank'>Download PDF</a>
             </div>
         )

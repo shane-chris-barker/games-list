@@ -6,10 +6,10 @@ class PdfSpinner extends Component {
     render() {
         return (
             <div className='row'>
-                <img src={PdfSpin}/>
+                <div className='col-12'>
+                    <img src={PdfSpin}/>
+                </div>
             </div>
-
-
         )
     }
 }

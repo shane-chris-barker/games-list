@@ -16,7 +16,7 @@ class Content extends Component {
             loading: false,
             pdfExported:false,
             pdfLink:null,
-            pdfLoading:false
+            pdfLoading:false,
         };
         this.handleSearchTerm   = this.handleSearchTerm.bind(this);
         this.search             = this.search.bind(this);
@@ -34,9 +34,9 @@ class Content extends Component {
         axios.post('api/search', searchTerm).then(response => {
             var data = JSON.parse(response.data);
             this.setState({results: data});
-            this.setState({ loading: false });
+            this.setState({loading: false });
         }).catch(error => {
-            self.setState({ loading: false });
+            self.setState({loading: false });
         })
     }
 
@@ -61,6 +61,7 @@ class Content extends Component {
 
     exportToPdf(event) {
         this.setState({pdfLoading:true});
+        this.setState({results:null});
         let params = {
             theList: this.state.list
         }
@@ -70,10 +71,6 @@ class Content extends Component {
             this.setState({pdfLoading:false})
             this.setState({pdfLink:url});
             this.setState({pdfExported:true});
-
-            console.log(response.data);
-
-
         }).catch(error => {
             this.setState({pdfLoading:false})
         })
@@ -84,6 +81,7 @@ class Content extends Component {
     }
 
     render() {
+
         let resultDiv
         if(this.state.results) {
             resultDiv =
@@ -96,14 +94,14 @@ class Content extends Component {
                     </div>
                     <div className='row '>
                         <p className='col-12'><strong>Name:</strong></p>
-                        <p className='col-12'> {this.state.results.name}</p>
+                        <p className='col-12'>{this.state.results.name}</p>
                         <p className='col-12'><strong>Release Date:</strong></p>
                         <p className='col-12'>{this.state.results.original_release_date}</p>
                     </div>
                     <div className='row'>
                         <img className='col-4 offset-4 img-thumbnail' src={this.state.results.image.thumb_url}/>
                     </div>
-                    <div className='row mt-5'>
+                    <div className='row mt-5 mb-3'>
                         <input
                             type='button'
                             className='btn btn-primary col-6 offset-3'
@@ -151,7 +149,7 @@ class Content extends Component {
                         <div className='row mt-2 mb-5'>
                             <button
                                 className='btn btn-primary col-6 offset-3'
-                                onClick={this.showEmailModal}
+                                onClick={this.modalToggle}
                             >
                                 Send As Email
                             </button>
@@ -161,16 +159,16 @@ class Content extends Component {
         } else {
             listDiv =
                 <div className='col-12'>
-                    <div className='row'>
+                    <div className='row '>
                         <h3 className='col-12'>The List</h3>
-                        <p>Your list is currently empty</p>
+                        <p className='text-center col-12'>Your list is currently empty</p>
                     </div>
                 </div>
         }
         return (
             <div className='row'>
                 <div className="col-4">
-                    <h5>The Search:</h5>
+                    <h4>The Search:</h4>
                     <form onSubmit={this.search}>
                         <div className='form-group'>
                             <label className='form-label' htmlFor='search-term'>

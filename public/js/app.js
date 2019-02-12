@@ -64427,13 +64427,23 @@ function (_Component) {
         className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to Games- list")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Another boring Sunday afternoon means another pointless creation by me - Shane Chris Barker")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Another pointless creation by me - Shane Chris Barker")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "So....what does this do exactly?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Erm.. it lets you search the GiantBomb API (more info on this in the footer) for a video game and save any of the resutlts to a list. When you have finished building your list, you can export it as a PDF for referring to later or email the list to your Mum so she knows what to get you for Xmas.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "alert-heading"
+      }, "So....what does this do exactly?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Erm.. it lets you search the GiantBomb API (more info on this in the footer) for a video game and save any of the resutlts to a list. When you have finished building your list, you can export it as a PDF for referring to later or email the list to your Mum so she knows what to get you for Xmas."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Okay, that could be useful to someone I guess... So what did you make it with?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Glad you asked! This creation is my first go at mixing Laravel and React.js! I have used Laravel a lot in my current role but not React.js. This is my first attempt at using the two together."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_partials_Content__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-success"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "alert-heading"
+      }, "Okay, that could be useful to someone I guess... So what did you make it with?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Glad you asked! This creation is my first go at mixing Laravel and React.js! I get to use Laravel a lot in my current role but not React.js. This is my first attempt at using the two together.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mt-5 alert alert-primary"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_partials_Content__WEBPACK_IMPORTED_MODULE_1__["default"], null))));
     }
   }]);
 
@@ -64583,6 +64593,9 @@ function (_Component) {
       this.setState({
         pdfLoading: true
       });
+      this.setState({
+        results: null
+      });
       var params = {
         theList: this.state.list
       };
@@ -64601,8 +64614,6 @@ function (_Component) {
         _this3.setState({
           pdfExported: true
         });
-
-        console.log(response.data);
       }).catch(function (error) {
         _this3.setState({
           pdfLoading: false
@@ -64634,7 +64645,7 @@ function (_Component) {
           className: "col-12"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Name:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "col-12"
-        }, " ", this.state.results.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, this.state.results.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "col-12"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Release Date:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "col-12"
@@ -64644,7 +64655,7 @@ function (_Component) {
           className: "col-4 offset-4 img-thumbnail",
           src: this.state.results.image.thumb_url
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row mt-5"
+          className: "row mt-5 mb-3"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "button",
           className: "btn btn-primary col-6 offset-3",
@@ -64695,23 +64706,25 @@ function (_Component) {
           className: "row mt-2 mb-5"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "btn btn-primary col-6 offset-3",
-          onClick: this.showEmailModal
+          onClick: this.modalToggle
         }, "Send As Email"))));
       } else {
         listDiv = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row"
+          className: "row "
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
           className: "col-12"
-        }, "The List"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your list is currently empty")));
+        }, "The List"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "text-center col-12"
+        }, "Your list is currently empty")));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-4"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "The Search:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "The Search:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.search
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
@@ -64793,8 +64806,6 @@ function (_Component) {
     _this.state = {
       pdfLink: _this.props.pdfLink
     };
-    console.log('inside pdfLink');
-    console.log(_this.state.pdfLink);
     return _this;
   }
 
@@ -64802,8 +64813,10 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "alert alert-success"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "alert-heading col-12 text-center"
+      }, "The PDF is ready to download! Whoop!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: this.state.pdfLink,
         className: "btn btn-primary",
         target: "_blank"
@@ -64868,9 +64881,11 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: _images_pdf_spinner_svg__WEBPACK_IMPORTED_MODULE_1___default.a
-      }));
+      })));
     }
   }]);
 
