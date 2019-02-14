@@ -12,13 +12,21 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
-
+body {
+    background-color: gainsboro !important;
+}
 #footer {
-    min-height:15em;
-    background-color:red;
+    min-height:10em;
+    background-color:white;
+    padding:2%;
 }
 
 #logo {
     max-height:75%;
     max-width:75%;
+}
+
+#content {
+    background-color:white;
+    padding:5%;
 }

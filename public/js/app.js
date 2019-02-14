@@ -64323,13 +64323,31 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _images_games_list_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/games-list-logo.png */ "./resources/js/components/images/games-list-logo.png");
+/* harmony import */ var _images_games_list_logo_png__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_images_games_list_logo_png__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 var Footer = function Footer() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mt-5",
     id: "footer"
-  });
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-4 col-12"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_games_list_logo_png__WEBPACK_IMPORTED_MODULE_1___default.a
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-4 col-12 offset-4"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "API kindly provided by", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://www.giantbomb.com/",
+    target: "_blank"
+  }, "GiantBomb"))))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -64420,7 +64438,8 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container text-center mt-5"
+        className: "container text-center mt-5",
+        id: "content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -64430,13 +64449,13 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Another pointless creation by me - Shane Chris Barker")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-6"
+        className: "col-md-6 col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alert alert-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "alert-heading"
-      }, "So....what does this do exactly?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Erm.. it lets you search the GiantBomb API (more info on this in the footer) for a video game and save any of the resutlts to a list. When you have finished building your list, you can export it as a PDF for referring to later or email the list to your Mum so she knows what to get you for Xmas."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-6"
+      }, "So....what does this do exactly?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Erm.. it lets you search the GiantBomb API (more info on this in the footer) for a video game and save any of the resutlts to a list. When you have finished building your list, you can export it as a PDF for referring to later (or giving to your Mum so she knows what to get you for Xmas)."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6 col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alert alert-success"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
@@ -64520,7 +64539,6 @@ function (_Component) {
       name: '',
       description: '',
       results: null,
-      errors: [],
       list: [],
       loading: false,
       pdfExported: false,
@@ -64531,7 +64549,7 @@ function (_Component) {
     _this.search = _this.search.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.addToList = _this.addToList.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.exportToPdf = _this.exportToPdf.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.sendAsEmail = _this.sendAsEmail.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.reset = _this.reset.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -64568,6 +64586,19 @@ function (_Component) {
     value: function handleSearchTerm(event) {
       this.setState({
         name: event.target.value
+      });
+    }
+  }, {
+    key: "reset",
+    value: function reset(event) {
+      this.setState({
+        pdfExported: false
+      });
+      this.setState({
+        pdfLink: null
+      });
+      this.setState({
+        list: []
       });
     }
   }, {
@@ -64620,9 +64651,6 @@ function (_Component) {
         });
       });
     }
-  }, {
-    key: "sendAsEmail",
-    value: function sendAsEmail(event) {}
   }, {
     key: "render",
     value: function render() {
@@ -64692,7 +64720,6 @@ function (_Component) {
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, result.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "col-12"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "img-thumbnail",
             src: result.image
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "row"
@@ -64700,14 +64727,9 @@ function (_Component) {
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "btn btn-primary col-6 offset-3",
+          className: "btn btn-primary col-6 offset-3 mb-3",
           onClick: this.exportToPdf
-        }, "Export To PDF")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row mt-2 mb-5"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "btn btn-primary col-6 offset-3",
-          onClick: this.modalToggle
-        }, "Send As Email"))));
+        }, "Export To PDF"))));
       } else {
         listDiv = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12"
@@ -64723,7 +64745,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-4"
+        className: "col-md-4 col-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "The Search:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.search
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -64745,11 +64767,12 @@ function (_Component) {
         className: "btn btn-primary",
         value: "Search Baby!"
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-4"
+        className: "col-md-4 col-12"
       }, this.state.loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Spinner__WEBPACK_IMPORTED_MODULE_1__["default"], null) : resultDiv), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-4"
+        className: "col-md-4 col-12"
       }, this.state.pdfLoading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PdfSpinner__WEBPACK_IMPORTED_MODULE_3__["default"], null) : this.state.pdfExported ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PdfLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        pdfLink: this.state.pdfLink
+        pdfLink: this.state.pdfLink,
+        reset: this.reset
       }) : listDiv));
     }
   }]);
@@ -64816,11 +64839,18 @@ function (_Component) {
         className: "alert alert-success"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "alert-heading col-12 text-center"
-      }, "The PDF is ready to download! Whoop!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, "The PDF is ready to download! Whoop!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "rowmt-5 col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: this.state.pdfLink,
         className: "btn btn-primary",
         target: "_blank"
-      }, "Download PDF"));
+      }, "Download PDF")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-2 col-12"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-primary col-4 offset-4",
+        onClick: this.props.reset
+      }, "reset")));
     }
   }]);
 

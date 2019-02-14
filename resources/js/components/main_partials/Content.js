@@ -11,7 +11,6 @@ class Content extends Component {
             name: '',
             description: '',
             results: null,
-            errors: [],
             list: [],
             loading: false,
             pdfExported:false,
@@ -22,9 +21,10 @@ class Content extends Component {
         this.search             = this.search.bind(this);
         this.addToList          = this.addToList.bind(this);
         this.exportToPdf        = this.exportToPdf.bind(this);
-        this.sendAsEmail        = this.sendAsEmail.bind(this);
+        this.reset              = this.reset.bind(this);
     }
 
+    // Call the backend Laravel API and perform a search request
     search (event) {
         event.preventDefault();
         let searchTerm = {
@@ -40,10 +40,19 @@ class Content extends Component {
         })
     }
 
+    // handle the term being searched for
     handleSearchTerm (event) {
         this.setState({name: event.target.value});
     }
 
+    // reset the form back to defaults after finishing
+    reset(event) {
+        this.setState({pdfExported: false});
+        this.setState({pdfLink: null});
+        this.setState({list: []});
+    }
+
+    // add a game to the list.
     addToList(event) {
         const history = this.state.list;
         let i = this.state.list.length;
@@ -59,6 +68,7 @@ class Content extends Component {
         this.setState({list:history});
     }
 
+    // call the Laravel backend and request a generation of PDF
     exportToPdf(event) {
         this.setState({pdfLoading:true});
         this.setState({results:null});
@@ -76,12 +86,7 @@ class Content extends Component {
         })
     }
 
-    sendAsEmail(event) {
-
-    }
-
     render() {
-
         let resultDiv
         if(this.state.results) {
             resultDiv =
@@ -126,34 +131,26 @@ class Content extends Component {
                     <div className='card-header'>
                         <h3 className='col-12'>The List</h3>
                     </div>
-                        {this.state.list.map((result) =>
-                            <div key={result.id} className='row'>
-                                <div className='col-12 text-center'>
-                                    <strong>{result.name}</strong>
-                                </div>
-                                <div className='col-12'>
-                                    <img className='img-thumbnail' src={result.image}/>
-                                </div>
-                                <div className='row'><hr/></div>
+                    {this.state.list.map((result) =>
+                        <div key={result.id} className='row'>
+                            <div className='col-12 text-center'>
+                                <strong>{result.name}</strong>
                             </div>
-                        )}
-                        <hr/>
-                        <div className='row'>
-                            <button
-                                className='btn btn-primary col-6 offset-3'
-                                onClick={this.exportToPdf}
-                            >
-                                Export To PDF
-                            </button>
+                            <div className='col-12'>
+                                <img src={result.image}/>
+                            </div>
+                            <div className='row'><hr/></div>
                         </div>
-                        <div className='row mt-2 mb-5'>
-                            <button
-                                className='btn btn-primary col-6 offset-3'
-                                onClick={this.modalToggle}
-                            >
-                                Send As Email
-                            </button>
-                        </div>
+                    )}
+                    <hr/>
+                    <div className='row'>
+                        <button
+                            className='btn btn-primary col-6 offset-3 mb-3'
+                            onClick={this.exportToPdf}
+                        >
+                            Export To PDF
+                        </button>
+                    </div>
                 </div>
             </div>
         } else {
@@ -167,7 +164,7 @@ class Content extends Component {
         }
         return (
             <div className='row'>
-                <div className="col-4">
+                <div className="col-md-4 col-12">
                     <h4>The Search:</h4>
                     <form onSubmit={this.search}>
                         <div className='form-group'>
@@ -188,11 +185,12 @@ class Content extends Component {
                         </div>
                     </form>
                 </div>
-                <div className='col-4'>
+                <div className='col-md-4 col-12'>
                     {this.state.loading ? <Spinner /> : resultDiv}
                 </div>
-                <div className='col-4'>
-                    {this.state.pdfLoading ? <PdfSpinner /> : this.state.pdfExported ? <PdfLink pdfLink={this.state.pdfLink}/> : listDiv}
+                <div className='col-md-4 col-12'>
+                    {this.state.pdfLoading ? <PdfSpinner /> : this.state.pdfExported ?
+                        <PdfLink pdfLink={this.state.pdfLink} reset={this.reset}/> : listDiv}
                 </div>
             </div>
         )
